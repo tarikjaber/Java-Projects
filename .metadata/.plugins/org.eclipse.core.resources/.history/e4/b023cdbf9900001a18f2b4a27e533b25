@@ -1,0 +1,10 @@
+import java.awt.Color;
+
+public class PongTester {
+
+	public static void main(String[] args) {
+		ColorPanel mama = new ColorPanel(Color.blue);
+
+	}
+
+}

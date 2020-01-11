@@ -1,0 +1,19 @@
+
+public class Tester {
+
+	public static void main(String[] args) {
+		
+		Triangle t1 = new Triangle(0,0, 1,2,3,4);
+		System.out.println(t1.toString());
+		
+		Lineseg line = new Lineseg(0.0,0.0,3.0,4.0);
+		System.out.println(line.getSlope());
+		System.out.println(line.getDistance());
+		
+		
+		Point p1 = new Point(0.0, 2.0);
+		System.out.println(p1.toString());
+
+	}
+
+}

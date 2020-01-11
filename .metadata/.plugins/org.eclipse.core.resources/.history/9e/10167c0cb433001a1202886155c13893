@@ -1,0 +1,18 @@
+
+public class Tester {
+
+	public static void main(String[] args) {
+		FullTimeEmployee fullTimeEmployee1 = new FullTimeEmployee("Tarik", 12.0, 10);
+		FullTimeEmployee fullTimeEmployee2 = new FullTimeEmployee("Ayanav", 6.0, 12);
+		FullTimeEmployee fullTimeEmployee3 = new FullTimeEmployee("Pranav", 13.0, 15);
+		PartTimeEmployee partTimeEmployee1 = new PartTimeEmployee("Aarya", 19, 8);
+		PartTimeEmployee partTimeEmployee2 = new PartTimeEmployee("Keshav", 3, 2);
+		
+		System.out.println(fullTimeEmployee1);
+		System.out.println(fullTimeEmployee2);
+		System.out.println(fullTimeEmployee3);
+		System.out.println(partTimeEmployee1);
+		System.out.println(partTimeEmployee2);
+	}
+
+}

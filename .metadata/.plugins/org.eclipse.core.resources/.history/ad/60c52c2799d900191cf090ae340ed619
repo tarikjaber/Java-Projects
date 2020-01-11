@@ -1,0 +1,20 @@
+
+public class Tester {
+
+	public static void main(String[] args) {
+		
+		Point p1 = new Point(0,9);
+		Point p2 = new Point(4,4);
+		Lineseg l1 = new Lineseg(p1,p2);
+		System.out.println(l1.toString());
+		
+		/*
+		Triangle t1 = new Triangle(0,0, 1,Math.sqrt(3) + .01,2,0);
+		System.out.println(t1.toString());
+		
+		System.out.println(t1.isTri());
+		System.out.println(t1.getType());
+		*/
+	}
+
+}

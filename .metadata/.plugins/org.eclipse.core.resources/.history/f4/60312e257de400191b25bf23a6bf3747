@@ -1,0 +1,174 @@
+import java.io.FileNotFoundException;
+import javax.swing.*; //ÉAccessÉJFrame
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Random;
+import java.io.*;
+import java.io.IOException;
+import java.util.Scanner;
+public class Main {
+	
+	public static int empNum = 0;
+
+	public static void main(String[] args) throws IOException {
+		
+		Employee emp = new Employee(1);
+		
+		System.out.println(((int)Math.random()*2.0));
+		
+		
+		/* Employee stuff
+		System.out.println("Fill constructor");
+		Employee tarik = new Employee("Tarik", "Jaber", 10, 10.0, 10, 10, 'M');
+		System.out.println(tarik.toString());
+		System.out.println();
+		
+		System.out.println("Random fill for numbers");
+		Employee sankaran = new Employee("Sankaran", "Iyer",'M');
+		System.out.println(sankaran.toString());
+		System.out.println();
+		
+		System.out.println("Random fill");
+	Employee aarya = new Employee("C:\\Users\\yusef\\OneDrive\\Desktop\\AP Computer Science\\Employees.txt");
+		aarya.setName("Aarya Patel");
+		System.out.println(aarya.toString());
+		System.out.println();
+		
+		EmployeeArray empArray = new EmployeeArray();
+		
+		
+		for (int i = 0; i < 10; i++) {
+			empArray.emps[i] = new Employee("C:\\Users\\yusef\\OneDrive\\Desktop\\AP Computer Science\\Employees.txt");
+			System.out.println(empArray.emps[i].toString());
+		}
+		
+		JFrame f = new JFrame();  
+		f.setSize(600, 400);
+		f.setLayout(null);
+		
+		JButton b1 = new JButton("Next");
+		b1.setBounds(450,50,125,80); 
+		
+		JButton b2 = new JButton("Back");
+		b2.setBounds(450,150,125,80); 
+		
+		JButton b3 = new JButton("Exit");
+		b3.setBounds(450,250,125,80); 
+		
+		JLabel l1 = new JLabel("First Name: " + (empArray.emps[0].getfname()));
+		l1.setBounds(50,0,200, 40);
+		
+		JLabel l2 = new JLabel("Last Name: " + (empArray.emps[0].getlname()));
+		l2.setBounds(50,40,200, 40);
+		
+		JLabel l3 = new JLabel("Hours: " + (empArray.emps[0].gethours()));
+		l3.setBounds(50,80,100, 40);
+		
+		JLabel l4 = new JLabel("Rate: " + (empArray.emps[0].getrate()));
+		l4.setBounds(50,120,100, 40);
+		
+		JLabel l5 = new JLabel("ID: " + (empArray.emps[0].getid()));
+		l5.setBounds(50,160,100, 40);
+		
+		JLabel l6 = new JLabel("Age: " + (empArray.emps[0].getage()));
+		l6.setBounds(50,200,100, 40);
+		
+		JLabel l7 = new JLabel("Gender: " + (empArray.emps[0].getgender()));
+		l7.setBounds(50,240,100, 40);
+		
+		JLabel l8 = new JLabel("Total pay: " + (empArray.emps[0].getPay()));
+		l8.setBounds(50,280,100, 40);
+		
+		JLabel l9 = new JLabel("Employee num: " + (empNum));
+		l9.setBounds(50,320,100, 40);
+		
+		
+		//.setText("Ya Yeet");
+		f.add(b1);
+		f.add(b2);
+		f.add(b3);
+		f.add(l1);
+		f.add(l2);
+		f.add(l3);
+		f.add(l4);
+		f.add(l5);
+		f.add(l6);
+		f.add(l7);
+		f.add(l8);
+		f.add(l9);
+		f.setVisible(true);
+		
+		
+		
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				if (empNum < 9) {
+					empNum += 1;
+				
+				l1.setText("First Name: " + (empArray.emps[empNum].getfname()));
+				l2.setText("Last Name: " + (empArray.emps[empNum].getlname()));
+				l3.setText("Hours: " + (empArray.emps[empNum].gethours()));
+				l4.setText("Rate: " + (empArray.emps[empNum].getrate()));
+				l5.setText("ID: " + (empArray.emps[empNum].getid()));
+				l6.setText("Age: " + (empArray.emps[empNum].getage()));
+				l7.setText("Gender: " + (empArray.emps[empNum].getgender()));
+				l8.setText("Total pay: " + (empArray.emps[empNum].getPay()));
+				l9.setText("Employee num: " + (empNum));
+				} else if (empNum == 9) {
+					empNum = 0;
+					l1.setText("First Name: " + (empArray.emps[empNum].getfname()));
+					l2.setText("Last Name: " + (empArray.emps[empNum].getlname()));
+					l3.setText("Hours: " + (empArray.emps[empNum].gethours()));
+					l4.setText("Rate: " + (empArray.emps[empNum].getrate()));
+					l5.setText("ID: " + (empArray.emps[empNum].getid()));
+					l6.setText("Age: " + (empArray.emps[empNum].getage()));
+					l7.setText("Gender: " + (empArray.emps[empNum].getgender()));
+					l8.setText("Total pay: " + (empArray.emps[empNum].getPay()));
+					l9.setText("Employee num: " + (empNum));
+				}
+			}
+		});
+		
+		b2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 
+				if (empNum > 0) {
+					empNum -= 1;
+				
+				l1.setText("First Name: " + (empArray.emps[empNum].getfname()));
+				l2.setText("Last Name: " + (empArray.emps[empNum].getlname()));
+				l3.setText("Hours: " + (empArray.emps[empNum].gethours()));
+				l4.setText("Rate: " + (empArray.emps[empNum].getrate()));
+				l5.setText("ID: " + (empArray.emps[empNum].getid()));
+				l6.setText("Age: " + (empArray.emps[empNum].getage()));
+				l7.setText("Gender: " + (empArray.emps[empNum].getgender()));
+				l8.setText("Total pay: " + (empArray.emps[empNum].getPay()));
+				l9.setText("Employee num: " + (empNum));
+				} else if (empNum == 0) {
+					empNum = 9;
+					l1.setText("First Name: " + (empArray.emps[empNum].getfname()));
+					l2.setText("Last Name: " + (empArray.emps[empNum].getlname()));
+					l3.setText("Hours: " + (empArray.emps[empNum].gethours()));
+					l4.setText("Rate: " + (empArray.emps[empNum].getrate()));
+					l5.setText("ID: " + (empArray.emps[empNum].getid()));
+					l6.setText("Age: " + (empArray.emps[empNum].getage()));
+					l7.setText("Gender: " + (empArray.emps[empNum].getgender()));
+					l8.setText("Total pay: " + (empArray.emps[empNum].getPay()));
+					l9.setText("Employee num: " + (empNum));
+				}
+			}
+		});
+		
+		b3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				f.dispose();
+			}
+		});
+		
+		*/
+		
+	}
+
+}

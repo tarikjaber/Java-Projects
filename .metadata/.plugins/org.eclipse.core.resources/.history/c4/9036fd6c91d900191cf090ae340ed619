@@ -1,0 +1,36 @@
+
+public class Point {
+
+	private double myx,myy;
+	
+	public Point() {
+		myx = 0.0;
+		myy = 0.0;
+	}
+	
+	public Point(double x, double y) {
+		myx = x;
+		myy = y;
+	}
+
+	public double getMyx() {
+		return myx;
+	}
+
+	public void setMyx(double myx) {
+		this.myx = myx;
+	}
+
+	public double getMyy() {
+		return myy;
+	}
+
+	public void setMyy(double myy) {
+		this.myy = myy;
+	}
+	
+	public String toString() {
+		return "(" + myx + ", " + myy + ")";
+	}
+
+}

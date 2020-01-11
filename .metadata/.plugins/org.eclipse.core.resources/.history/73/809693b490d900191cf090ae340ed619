@@ -1,0 +1,11 @@
+
+public class Tester {
+
+	public static void main(String[] args) {
+		Lineseg line = new Lineseg(0,0,3,4);
+		System.out.println(line.getSlope());
+		System.out.println(line.getDistance());
+
+	}
+
+}

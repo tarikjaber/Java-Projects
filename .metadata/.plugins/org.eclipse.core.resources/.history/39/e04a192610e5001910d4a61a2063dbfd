@@ -1,0 +1,36 @@
+import java.io.IOException;
+
+public class PEmp extends Employee{
+
+	private int ndep;
+	
+	public PEmp() {
+		super();
+		ndep = 0;
+	}
+	
+	public PEmp(int r) throws IOException {
+		super(r);
+		ndep = (int)(Math.random() * 6);
+	}
+	
+	public String toString() {
+		return super.toString() + "|NOD: " + this.ndep;
+	}
+	
+	public String dataOutput() {
+		return this.getfname() + " " + this.getlname() + 
+				" " + this.gethours() + " " + this.getrate()
+				+ " " + this.getid() + " " + this.getage() + " " + 
+				this.getgender() + " " + this.getPay() + " " + getNdep();
+	}
+
+	public int getNdep() {
+		return ndep;
+	}
+
+	public void setNdep(int ndep) {
+		this.ndep = ndep;
+	}
+
+}

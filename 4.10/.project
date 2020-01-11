@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>4.10</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/tsr.txt</name>
+			<type>1</type>
+			<location>C:/Users/yusef/OneDrive/Desktop/Java Projects/4.10/src/tsr.txt</location>
+		</link>
+		<link>
+			<name>src/tsw.txt</name>
+			<type>1</type>
+			<location>C:/Users/yusef/OneDrive/Desktop/Java Projects/4.10/src/tsw.txt</location>
+		</link>
+	</linkedResources>
+</projectDescription>

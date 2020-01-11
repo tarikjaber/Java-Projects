@@ -1,0 +1,103 @@
+import javax.swing.*;
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.math.*;
+public class graphics extends JPanel{
+	
+	int x, y;
+	double lx, ly;
+	double sx;
+	double sy;
+	
+	public graphics(Color backColor) {
+		setBackground(backColor);
+		
+		x = 100;
+		y = 100;
+		
+		addMouseListener(new PanelListener());
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.black);
+		
+		int x2 = getWidth() / 2;
+		int y2 = getHeight() /2;
+		//g.drawRect(x - 60, y - 60, 120, 120);
+		
+		g.drawLine(x2, 0, x2, getHeight());
+		g.drawLine(0, y2, getWidth(), y2);
+		g.drawString("(" + 0 + ", " + 0 + ")", x2 + 10, y2 - 10);
+		
+		int cox = x2 - 3;
+		int coy = y2 - 3;
+		g.drawOval(cox , coy , 6, 6);
+		//g.drawString("(" + x2 + ", " + y2 + ")", x2 + 10, y2 - 10);
+		
+		//g.drawString("(" + px + ", " + py + ")", x, y);
+		System.out.println(sx);
+		System.out.println(sy);
+		
+		//resize 
+		//g.drawString("(" + manx((int)(getWidth() * sx)) + ", " + many((int)(getHeight() * sy)) + ")", (int)(getWidth() * sx),(int)(getHeight() * sy));
+		
+		g.drawString("(" + manx(lx) + ", " + many(ly) + ")", lx, ly);
+		
+		g.drawOval((int)(getWidth() * sx),(int)(getHeight() * sy), 6, 6);
+		
+		double x4,y4,x5,y5,x6,y6,x7,y7;
+		
+		g.drawString("(" + manx(x2/2) + ", " + many(y2/2) + ")", x2/2, y2/2);
+		g.drawOval(x2/2,y2/2, 6, 6);
+		g.drawString("(" + manx(x2 * 3/2) + ", " + many(y2/2) + ")", x2 * 3/2, y2/2);
+		g.drawOval(x2 * 3/2, y2/2, 6, 6);
+		g.drawString("(" + manx(x2/2) + ", " + many(y2* 3/2) + ")", x2/2, y2* 3/2);
+		g.drawOval(x2/2, y2* 3/2, 6, 6);
+		g.drawString("(" + manx(x2 * 3/2) + ", " + many(y2 * 3/2) + ")", x2 * 3/2, y2 * 3/2);
+		g.drawOval(x2 * 3/2 , y2 * 3/2, 6, 6);
+		
+		//g.setColor(Color.red);
+		//g.drawString("Hello World", x - 30, y );
+	}
+	
+	public double manx(double x) {
+		double nx;
+		double x1 = getWidth();
+		
+		nx = x/x1;
+		
+		double px = -x1 + nx * (x1 - -x1);
+		return px;
+	}
+	
+	public double many(double y) {
+		double ny;
+		
+		double y1 = getHeight();
+		
+		ny = y/y1;
+		
+		double py = -y1 + ny * (y1 - -y1);
+		return -py;
+		
+	}
+	
+	private class PanelListener extends MouseAdapter {
+		public void mousePressed(MouseEvent e) {
+			x = e.getX();
+			y = e.getY();
+			
+			sx = (double)x/getWidth();
+			sy = (double)y/getHeight();
+			
+			lx = x;
+			ly = y;
+			
+			repaint();
+		}
+	}
+	
+}

@@ -1,0 +1,27 @@
+public class PartTimeEmployee extends Employee {
+
+	private int empID;
+	
+   public PartTimeEmployee() {
+      super();
+      totalPay += getPay();
+      empID = ID;
+   }
+   
+   public PartTimeEmployee(String n, double r, int h) {
+	   super(n,r,h);
+	   empID = ID;
+   }
+  
+   public double getPay() {
+      double pay;
+      pay = rate * hours;
+      totalPay += pay;
+      return pay;
+   }
+   
+   public String toString() {
+	   return "Name: " + name + " Rate: " + rate + " Hours: " + hours + " ID: " + empID + " Pay: " + getPay();
+   }
+}
+

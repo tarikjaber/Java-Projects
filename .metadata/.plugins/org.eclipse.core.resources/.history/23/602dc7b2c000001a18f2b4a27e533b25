@@ -1,0 +1,58 @@
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.*;
+
+public class ColorPanel extends JPanel {
+	
+	int x, y, px, py, dx, dy;
+
+	private ImageIcon image;
+	private Circle c1, c2;
+	
+	private Circle circle;
+	
+	
+	
+	public ColorPanel(Color backColor) {
+		setBackground(backColor);
+		c1 = new Circle(200,100,25,Color.red);
+		c2 = new Circle(100,100,50,Color.blue);
+		addMouseListener(new MoveListener());
+
+		circle = new Circle(50,50, 25, Color.red);
+		circle.setSpeed(50);
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		circle.draw(g);
+	}
+	
+	private class MoveListener extends MouseAdapter {
+		public void mousePressed(MouseEvent e) {
+			circle.move();
+			circle.turn(45);
+			repaint();
+		}
+		
+		public void mouseMoved(MouseEvent e) {
+			
+			System.out.println("Chicken");
+			x = e.getX();
+			y = e.getY();
+			
+			dx = x - px;
+			dy = x - py;
+			
+			px = x;
+			py = y;
+			
+			c1.move(dx, dy);
+			
+			repaint();
+		}
+	}
+	
+}

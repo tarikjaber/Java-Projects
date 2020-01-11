@@ -1,0 +1,13 @@
+
+public class Tester {
+
+	public static void main(String[] args) {
+		
+		Triangle t1 = new Triangle(0,0, 1,0,2,1);
+		System.out.println(t1.toString());
+		
+		System.out.println(t1.isTri());
+		System.out.println(t1.getType());
+	}
+
+}

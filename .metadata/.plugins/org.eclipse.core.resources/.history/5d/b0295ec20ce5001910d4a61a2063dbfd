@@ -1,0 +1,21 @@
+import java.io.IOException;
+
+public class PEmp extends Employee{
+
+	private int ndep;
+	
+	public PEmp() {
+		super();
+		ndep = 0;
+	}
+	
+	public PEmp(int r) throws IOException {
+		super(r);
+		ndep = (int)(Math.random() * 6);
+	}
+	
+	public String toString() {
+		return super.toString() + "|NOD: " + this.ndep;
+	}
+
+}

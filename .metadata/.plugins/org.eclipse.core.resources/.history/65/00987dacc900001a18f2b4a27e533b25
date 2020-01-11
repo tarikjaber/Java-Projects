@@ -1,0 +1,75 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Paddle {
+
+	private int centerX, centerY, width, height;
+	private Color color;
+	private javax.swing.Timer timer;
+	
+	public int getX() {
+		return centerX;
+	}
+
+	public void setX(int centerX) {
+		this.centerX = centerX;
+	}
+
+	public int getY() {
+		return centerY;
+	}
+
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public javax.swing.Timer getTimer() {
+		return timer;
+	}
+
+	public Paddle(int x, int y, int w, int h, Color c) {
+		centerX = x;
+		centerY = y;
+		width = w;
+		height = h;
+		color = c;
+	}
+
+	public void draw(Graphics g) {
+		
+		Color oldColor = g.getColor();
+		g.setColor(color);
+		
+		g.drawRect(centerX, centerY, width, height);
+		
+		g.setColor(oldColor);
+	}
+	
+	public void fill(Graphics g) {
+		Color oldColor = g.getColor();
+		g.setColor(color);
+		
+		g.fillRect(centerX, centerY, width, height);
+	}
+	
+	public boolean containsPoint (int x, int y) {
+		/*
+		int xSquared = (x - centerX) * (x - centerX);
+		int ySquared = (y - centerY) * (y - centerY);
+		int radiusSquared = radius * radius;
+		return xSquared + ySquared - radiusSquared <= 0;
+			*/
+		return true;
+	}
+	
+	public void move(int xAmount, int yAmount) {
+		centerX = centerX + xAmount;
+		centerY = centerY + yAmount;
+	}
+	
+}

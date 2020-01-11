@@ -1,0 +1,64 @@
+public class Triangle {
+	Lineseg myL1, myL2, myL3;
+	
+	public Triangle() {
+		this.myL1 = new Lineseg(0,0,0,0);
+		this.myL2 = new Lineseg(0,0,0,0);
+		this.myL3 = new Lineseg(0,0,0,0);
+	}
+	
+	public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
+		this.myL1 = new Lineseg(x1,y1,x2,y2);
+		this.myL2 = new Lineseg(x2,y2,x3,y3);
+		this.myL3 = new Lineseg(x3,y3,x1,y1);
+	}
+
+	public Lineseg getMyL1() {
+		return myL1;
+	}
+
+	public void setMyL1(Lineseg myL1) {
+		this.myL1 = myL1;
+	}
+
+	public Lineseg getMyL2() {
+		return myL2;
+	}
+
+	public void setMyL2(Lineseg myL2) {
+		this.myL2 = myL2;
+	}
+
+	public Lineseg getMyL3() {
+		return myL3;
+	}
+
+	public void setMyL3(Lineseg myL3) {
+		this.myL3 = myL3;
+	}
+	
+	public double getPerimeter() {
+		double perimeter;
+		perimeter = myL1.getDistance() + myL2.getDistance() + myL3.getDistance();
+		return perimeter;
+	}
+	
+	public double getArea() {
+		double area, s;
+		s = this.getPerimeter()/2;
+		area = Math.sqrt(s * (s - myL1.getDistance()) * (s - myL2.getDistance()) * (s - myL3.getDistance()));
+		return area;
+	}
+	
+	public boolean isTri() {
+		if ((myL1.getDistance() + myL2.getDistance() > myL3.getDistance()) & (myL1.getDistance() + myL2.getDistance() > myL3.getDistance()) & (myL1.getDistance() + myL2.getDistance() > myL3.getDistance())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public String toString() {
+		return "Pt1:" + myL1.getMyBP().toString() + ", " + "Pt2:" + myL1.getMyEP().toString() + ", " + "Pt3:" + myL2.getMyEP().toString();
+	}
+}

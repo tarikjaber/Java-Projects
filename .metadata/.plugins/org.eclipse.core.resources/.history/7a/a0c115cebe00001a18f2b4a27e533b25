@@ -1,0 +1,72 @@
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.*;
+
+public class ColorPanel extends JPanel {
+	
+	int x, y, px, py, dx, dy;
+
+	private ImageIcon image;
+	private Circle c1, c2;
+	
+	private Circle circle;
+	
+	
+	
+	public ColorPanel(Color backColor) {
+		setBackground(backColor);
+		c1 = new Circle(200,100,25,Color.red);
+		c2 = new Circle(100,100,50,Color.blue);
+		addMouseListener(new MoveListener());
+		//image = i;
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		c1.fill(g);
+		c2.draw(g);
+	}
+	
+	private class MoveListener extends MouseAdapter {
+		public void mousePressed(MouseEvent e) {
+			
+			System.out.println("Hello");
+			
+			x = e.getX();
+			y = e.getY();
+			
+			x = e.getX();
+			y = e.getY();
+			
+			dx = x - px;
+			dy = x - py;
+			
+			px = x;
+			py = y;
+			
+			c1.move(dx, dy);
+			
+			repaint();
+		}
+		
+		public void mouseMoved(MouseEvent e) {
+			
+			System.out.println("Nibba");
+			x = e.getX();
+			y = e.getY();
+			
+			dx = x - px;
+			dy = x - py;
+			
+			px = x;
+			py = y;
+			
+			c1.move(dx, dy);
+			
+			repaint();
+		}
+	}
+	
+}

@@ -1,0 +1,22 @@
+
+public class Tester {
+
+	public static void main(String[] args) {
+		
+		Lineseg l1 = new Lineseg(0,0,4,0);
+		Lineseg l2 = new Lineseg(4,0,0,3);
+		Lineseg l3 = new Lineseg(0,3,0,0);
+		Triangle t1 = new Triangle(l1,l2,l3);
+		System.out.println(t1);
+		
+		
+		/*
+		Triangle t1 = new Triangle(0,0, 1,Math.sqrt(3) + .01,2,0);
+		System.out.println(t1.toString());
+		
+		System.out.println(t1.isTri());
+		System.out.println(t1.getType());
+		*/
+	}
+
+}

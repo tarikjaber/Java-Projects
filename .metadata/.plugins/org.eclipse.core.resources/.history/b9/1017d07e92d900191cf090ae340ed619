@@ -1,0 +1,49 @@
+public class Triangle {
+	Lineseg myL1, myL2, myL3;
+	
+	public Triangle() {
+		this.myL1.setMyBP(0.0, 0.0);
+		this.myL1.setMyEP(0.0, 0.0);
+		this.myL2.setMyBP(0.0, 0.0);
+		this.myL2.setMyEP(0.0, 0.0);
+		this.myL3.setMyBP(0.0, 0.0);
+		this.myL3.setMyEP(0.0, 0.0);
+	}
+	
+	public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
+		this.myL1.setMyBP(x1, y1);
+		this.myL1.setMyEP(x2, y2);
+		this.myL2.setMyBP(x2, y2);
+		this.myL2.setMyEP(x3, y3);
+		this.myL3.setMyBP(x3, y3);
+		this.myL3.setMyEP(x1, y1);
+	}
+
+	public Lineseg getMyL1() {
+		return myL1;
+	}
+
+	public void setMyL1(Lineseg myL1) {
+		this.myL1 = myL1;
+	}
+
+	public Lineseg getMyL2() {
+		return myL2;
+	}
+
+	public void setMyL2(Lineseg myL2) {
+		this.myL2 = myL2;
+	}
+
+	public Lineseg getMyL3() {
+		return myL3;
+	}
+
+	public void setMyL3(Lineseg myL3) {
+		this.myL3 = myL3;
+	}
+	
+	public String toString() {
+		return myL1.getMyBP().toString() + ", " + myL1.getMyEP().toString() + ", " + myL2.getMyEP().toString();
+	}
+}

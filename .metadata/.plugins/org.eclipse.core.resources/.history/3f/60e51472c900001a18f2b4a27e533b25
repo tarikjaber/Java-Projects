@@ -1,0 +1,78 @@
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.*;
+
+public class ColorPanel extends JPanel {
+	
+	int x, y, px, py, dx, dy;
+
+	private ImageIcon image;
+	private Circle c1, c2;
+	
+	private Circle circle;
+	private Paddle paddle;
+	
+	private javax.swing.Timer timer;
+	
+	
+	public ColorPanel(Color backColor) {
+		setBackground(backColor);
+		
+		addMouseListener(new PanelListener());
+		addMouseMotionListener(new MouseListener());
+
+		circle = new Circle(50,50, 10, Color.black);
+		circle.setSpeed(8);
+		circle.setDirection(45);
+		
+		timer = new javax.swing.Timer(10, new MoveListener());
+		timer.start();
+		
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		circle.fill(g);
+	}
+	
+	private class MoveListener implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			int x = circle.getX();
+			int y = circle.getY();
+			int radius = circle.getRadius();
+			int width = getWidth();
+			int height = getHeight();
+			
+			if(x - radius <= 0 || x + radius >= width) 
+				circle.setDirection(180 - circle.getDirection());;
+			
+			if(y - radius <= 0 || y + radius >= height)
+				circle.setDirection(-circle.getDirection());
+				
+			
+			circle.move();
+			circle.turn(0);
+			repaint();
+		}
+		
+	}
+	
+	private class PanelListener extends MouseAdapter {
+		public void mousePressed(MouseEvent e) {
+			System.out.println("Clicked");
+		}
+		
+		
+	}
+	
+	private class MouseListener extends MouseMotionAdapter {
+		public void mouseMoved(MouseEvent e) {
+			System.out.println("moved");
+		}
+	}
+	
+}

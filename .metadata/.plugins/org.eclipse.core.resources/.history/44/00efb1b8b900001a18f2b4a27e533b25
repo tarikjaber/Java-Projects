@@ -1,0 +1,20 @@
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.Container;
+public class PongTester {
+
+	public static void main(String[] args) {
+		JFrame theGUI = new JFrame();
+		theGUI.setTitle("Pong");
+		theGUI.setSize(800, 700);
+		theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ColorPanel mama = new ColorPanel(Color.white);
+		Container  pane = theGUI.getContentPane();
+		pane.add(mama);
+		theGUI.setVisible(true);
+
+	}
+
+}

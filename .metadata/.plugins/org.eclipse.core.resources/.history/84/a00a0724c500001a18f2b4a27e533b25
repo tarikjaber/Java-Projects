@@ -1,0 +1,99 @@
+import java.awt.*;
+
+public class Circle {
+	
+	private int centerX, centerY, radius;
+	private Color color;
+	private javax.swing.Timer timer;
+	private int direction, speed;
+	
+	public int getX() {
+		return centerX;
+	}
+
+	public void setX(int centerX) {
+		this.centerX = centerX;
+	}
+
+	public int getRadius() {
+		return radius;
+	}
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public javax.swing.Timer getTimer() {
+		return timer;
+	}
+
+	public void setTimer(javax.swing.Timer timer) {
+		this.timer = timer;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public Circle(int x, int y, int r, Color c) {
+		centerX = x;
+		centerY = y;
+		radius = r;
+		color = c;
+	}
+
+	public void draw(Graphics g) {
+		
+		Color oldColor = g.getColor();
+		g.setColor(color);
+		
+		g.drawOval(centerX - radius, centerY - radius, radius * 2, radius * 2);
+		
+		g.setColor(oldColor);
+	}
+	
+	public void fill(Graphics g) {
+		Color oldColor = g.getColor();
+		g.setColor(color);
+		
+		g.fillOval(centerX - radius, centerY - radius, radius * 2, radius * 2);
+	}
+	
+	public boolean containsPoint (int x, int y) {
+		int xSquared = (x - centerX) * (x - centerX);
+		int ySquared = (y - centerY) * (y - centerY);
+		int radiusSquared = radius * radius;
+		return xSquared + ySquared - radiusSquared <= 0;
+				
+	}
+	
+	public void setSpeed(int s) {
+		speed = s;
+	}
+	
+	public void setDirection(int degrees) {
+		direction = degrees % 360;
+	}
+	
+	public void turn(int degrees) {
+		direction = (direction + degrees) % 360;
+	}
+	
+	public void move() {
+		move((int)(speed * Math.cos(Math.toRadians(direction))), (int)(speed * Math.sin(Math.toRadians(direction))));
+	}
+	
+	public void move(int xAmount, int yAmount) {
+		centerX = centerX + xAmount;
+		centerY = centerY + yAmount;
+	}
+	
+}

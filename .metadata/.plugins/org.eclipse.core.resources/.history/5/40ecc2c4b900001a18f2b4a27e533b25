@@ -1,0 +1,52 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class ColorPanel extends JPanel {
+	
+	int x, y, px, py, dx, dy;
+
+	private ImageIcon image;
+	private Circle c1, c2;
+	
+	public ColorPanel(Color backColor) {
+		setBackground(backColor);
+		c1 = new Circle(200,100,25,Color.red);
+		c2 = new Circle(100,100,50,Color.blue);
+		
+		//image = i;
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		c1.fill(g);
+		c2.draw(g);
+	}
+	
+	private class PanelListener extends MouseAdapter {
+		public void mousePressed(MouseEvent e) {
+			x = e.getX();
+			y = e.getY();
+			
+			repaint();
+		}
+		
+		public void mouseMoved(MouseEvent e) {
+			x = e.getX();
+			y = e.getY();
+			
+			dx = x - px;
+			dy = x - py;
+			
+			px = x;
+			py = y;
+			
+			c1.move(dx, dy);
+			
+			repaint();
+		}
+	}
+	
+}
