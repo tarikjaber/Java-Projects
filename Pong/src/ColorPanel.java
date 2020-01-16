@@ -38,8 +38,7 @@ public class ColorPanel extends JPanel {
 		setBackground(backColor);
 		
 		System.out.println(getHeight());
-		
-		
+				
 		addMouseListener(new PanelListener());
 		addMouseMotionListener(new MouseListener());
 

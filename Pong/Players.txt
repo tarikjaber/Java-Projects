@@ -48,3 +48,4 @@ johnathan 3 5
 Giannisav 5 2
 bob 5 4
 poi 5 3
+nim 5 3

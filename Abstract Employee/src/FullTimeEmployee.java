@@ -9,6 +9,7 @@ public class FullTimeEmployee extends Employee {
    
    public FullTimeEmployee(String n, double r, int h) {
 	   super(n,r,h);
+	   empID = ID;
    }
    
 
