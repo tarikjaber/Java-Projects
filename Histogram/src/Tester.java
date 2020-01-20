@@ -16,7 +16,7 @@ public class Tester {
 		dataSet set = new dataSet(array);
 		System.out.println("Is mode: " + set.isMode(4));
 		System.out.println("Mode index: " + set.modeIndex());
-		set.printHistogram(20, "c");
+		set.printHistogram(20, "x");
 
 	}
 
